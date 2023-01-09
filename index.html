@@ -1,7 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<!-- Si estas viendo esto, ¡un saludo colega! 👨🏽‍💻 👍🏽 -->
+<!-- Si estas viendo esto, ¡un saludo colega! 👨🏽‍💻 👍🏽 
+
+010010100101001001010010010010010010010010101001011
+0             ¡HELLO  #####  WORLD!               0
+1                    #.-.-.#                      1
+1       _          <=#.O|0.#=>                    0
+0      |C|           #.===.#                      1
+0      |D|            #####                       0
+1      |C|             @@@                        1
+1      |B|        $$$$$-|-$$$$$                   1
+0       -        $$$  @-|-@  $$$          _       0
+0                $$   @-|-@   $$         |C|      1
+1               &&&   @-|-@   &&&        |D|      0
+1              /&&&  _@-|-@_  &&&\       |C|      0
+1               \|/ $-/$-$\-$ \|/        |B|      1
+0                  $-/$   $\-$            -       0
+0                 $-/$     $\-$                   1
+0              %%%%%%%     %%%%%%%                0
+0             %%%%%%%       %%%%%%%%              1
+002232013010010101000101011101010010010010100100100
+-->
 
 <head>
 	<meta charset="UTF-8">
@@ -12,9 +32,9 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
 	<link rel="manifest" href="./favicon/site.webmanifest">
-	<link href="https://fonts.googleapis.com/css?family=Aldrich|Reenie+Beanie" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	<link rel="stylesheet" href="./libs/bootstrap.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -29,28 +49,31 @@
 				</select>
 			</div>
 			<div class="col-12 col-sm-6">
-				<button class="btn btn-primary btn-lg my-2 form-control" id="boton">Generar grafo de cursos</button>
-
+				<button class="btn btn-primary btn-lg my-2 form-control" id="boton">
+					<div class="d-flex justify-content-center">
+						<span class="material-symbols-outlined">polyline</span>
+						Generar grafo de cursos
+					</div>
+				</button>
 			</div>
 		</div>
 		<p class="text-white">Después de generar el grafo puedes ver los detalles y la relación directa entre cursos haciendo click en alguno, tambien puedes hacer zoom usando Ctrl+Scroll.</br>
 		Nota: La información aquí mostrada proviene completamente de datos públicos por parte de la universidad, esto podría poner en evidencia varias incoherencias en la manera como se tiene estructurado el plan de estudios de algunos programas.</p>
-		<div class="form-row mb-1">
-			<div class="col-12 col-sm-2 d-flex align-items-center">
+		<div class="form-row p-1 opaco">
+			<div class="col-12 col-sm-2 mt-1 d-flex align-items-center">
 				<input type="text" class="form-control" id="find" placeholder="Buscar curso...">
 			</div>
 			<div class="col-12 col-sm-10 d-flex align-items-center">
 				<h3 id="texto" class="text-white"></h3>
 			</div>
+			<div id="myDiagramDiv" style="width:100%; height:550px;"></div>
+			<p class="text-white mb-1">Mini web app developed by <a href="https://github.com/DavidCDCB">DavidCDCB</a>
+				<img src="./assets/mongodb.svg" width="2%" />
+				<img src="./assets/1869px-Python-logo-notext.svg.png" width="2%" />
+				<img src="./assets/javascript-logo-1.png" width="2%" />
+				<img src="./assets/html5-icon-13.jpg" width="2%" />
+			</p>
 		</div>
-
-		<div id="myDiagramDiv" style="width:100%; height:550px;"></div>
-		<p class="text-white">Mini web app developed by <a href="https://github.com/DavidCDCB">DavidCDCB</a>
-		<img src="./assets/mongodb.svg" width="2%" />
-		<img src="./assets/1869px-Python-logo-notext.svg.png" width="2%" />
-		<img src="./assets/javascript-logo-1.png" width="2%" />
-		<img src="./assets/html5-icon-13.jpg" width="2%" />
-		</p>
 	</div>
 	<script src="./libs/axios.min.js"></script>
 	<script src="./libs/go.js"></script>
