@@ -8,6 +8,12 @@ body {
   padding: 2rem 3rem;
   backdrop-filter: blur(10px);
   border-radius: 0.7rem;
+  transform: scaleX(0);
+}
+
+.opaco.is-show {
+  transform: scaleX(1);
+  transition: transform 500ms linear;
 }
 
 ::-webkit-scrollbar {

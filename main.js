@@ -64,9 +64,22 @@ let initRender = () => {
   return myDiagram;
 }
 
+let removeDuplicates = (arr) => {
+  let unique = [];
+  let newList = [];
+  for(let element of arr){
+    if (!unique.includes(element.key)){
+      newList.push(element);
+    }
+    unique.push(element.key);
+  }
+  return newList;
+}
+
 let setModel = (grafo) => {
   let adyacencias = [];
-  let nodos = grafo.map(n => { return { t: `${n.nombre}`, key: n.id, color: "lightgreen" } })
+  let nodos = removeDuplicates(grafo.map(n => { return { t: `${n.nombre}`, key: n.id, color: "lightgreen" } }));
+
   for (let n of grafo) {
     if ('requisitos' in n) {
       for (let c of n.requisitos) {
@@ -100,6 +113,7 @@ let getRequest = (url) => {
   axios.get(url).then(response => {
     grafo = Object.values(response.data);
     console.log(grafo);
+    document.querySelector("#divDiagram").classList.add("is-show");
     setModel(grafo);
   }).catch(error => {
     console.log(error);
