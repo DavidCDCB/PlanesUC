@@ -1,13 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+<html lang="es">
+
+<!-- Si estas viendo esto, ¡un saludo colega! 👨🏽‍💻 👍🏽 -->
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Visor de planes de estudio 🔎📚</title>
+	<link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+	<link rel="manifest" href="./favicon/site.webmanifest">
+	<link href="https://fonts.googleapis.com/css?family=Aldrich|Reenie+Beanie" rel="stylesheet">
+	<link rel="stylesheet" href="./libs/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="d-flex justify-content-center">
+			<h1 class="text-white">Visor de planes de estudio 🔎📚</h1>
+		</div>
+		<div class="form-row mb-1">
+			<div class="col-12 col-sm-6 d-flex align-items-center">
+				<select id="programas" class="form-control form-control-lg">
+					<option value="none" selected disabled hidden>Seleccionar programa...</option>
+				</select>
+			</div>
+			<div class="col-12 col-sm-6">
+				<button class="btn btn-primary btn-lg my-2 form-control" id="boton">Generar grafo de cursos</button>
+
+			</div>
+		</div>
+		<p class="text-white">Después de generar el grafo puedes ver los detalles y la relación directa entre cursos haciendo click en alguno, tambien puedes hacer zoom usando Ctrl+Scroll.</br>
+		Nota: La información aquí mostrada proviene completamente de datos públicos por parte de la universidad, esto podría poner en evidencia varias incoherencias en la manera como se tiene estructurado el plan de estudios de algunos programas.</p>
+		<div class="form-row mb-1">
+			<div class="col-12 col-sm-2 d-flex align-items-center">
+				<input type="text" class="form-control" id="find" placeholder="Buscar curso...">
+			</div>
+			<div class="col-12 col-sm-10 d-flex align-items-center">
+				<h3 id="texto" class="text-white"></h3>
+			</div>
+		</div>
+
+		<div id="myDiagramDiv" style="width:100%; height:550px;"></div>
+		<p class="text-white">Mini web app developed by <a href="https://github.com/DavidCDCB">DavidCDCB</a>
+		<img src="./assets/mongodb.svg" width="2%" />
+		<img src="./assets/1869px-Python-logo-notext.svg.png" width="2%" />
+		<img src="./assets/javascript-logo-1.png" width="2%" />
+		<img src="./assets/html5-icon-13.jpg" width="2%" />
+		</p>
+	</div>
+	<script src="./libs/axios.min.js"></script>
+	<script src="./libs/go.js"></script>
+	<script src="main.js"></script>
+</body>
+
 </html>
