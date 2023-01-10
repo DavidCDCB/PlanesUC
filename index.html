@@ -32,7 +32,7 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
 	<link rel="manifest" href="./favicon/site.webmanifest">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="./libs/bootstrap.min.css" crossorigin="anonymous">
 	<link rel="stylesheet" href="./libs/anicollection.css">
 	<link rel="stylesheet" href="./style.css">
@@ -43,7 +43,7 @@
 		<div class="d-flex justify-content-center">
 			<h1 class="text-white">Visor de planes de estudio 🔎📚</h1>
 		</div>
-		<div class="form-row mb-1">
+		<div id="form" class="form-row mb-1">
 			<div class="col-12 col-sm-6 d-flex align-items-center">
 				<select id="programas" class="form-control form-control-lg">
 					<option value="none" selected disabled hidden>Seleccionar programa...</option>
@@ -51,15 +51,16 @@
 			</div>
 			<div class="col-12 col-sm-6">
 				<button data-anijs="if: click, do: rubberBand animated, to: .opaco" class="btn btn-primary btn-lg my-2 form-control" id="boton">
-					<div data-anijs="if: mouseover, do: pulse animated" class="d-flex justify-content-center">
-						<span class="material-symbols-outlined">polyline</span>
+					<div data-anijs="if: mouseover, do: pulse animated">
+						<i class="fa-solid fa-diagram-project"></i>
 						Generar grafo de cursos
 					</div>
 				</button>
 			</div>
+			<p class="text-white">Después de generar el grafo puedes ver los detalles y la relación directa entre cursos haciendo click en alguno, tambien puedes hacer zoom usando Ctrl+Scroll.</br>
+				Nota: La información aquí mostrada proviene completamente de datos públicos por parte de la universidad, esto podría poner en evidencia varias incoherencias en la manera como se tiene estructurado el plan de estudios de algunos programas.</p>
 		</div>
-		<p class="text-white">Después de generar el grafo puedes ver los detalles y la relación directa entre cursos haciendo click en alguno, tambien puedes hacer zoom usando Ctrl+Scroll.</br>
-		Nota: La información aquí mostrada proviene completamente de datos públicos por parte de la universidad, esto podría poner en evidencia varias incoherencias en la manera como se tiene estructurado el plan de estudios de algunos programas.</p>
+		
 		<div id="divDiagram" class="form-row p-1 opaco">
 			<div class="col-12 col-sm-2 mt-1 d-flex align-items-center">
 				<input type="text" class="form-control" id="find" placeholder="Buscar curso...">

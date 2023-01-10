@@ -1,39 +1,52 @@
 body {
-  background-image:  
-  url("./assets/background.svg");
-  background-size: cover;
+	background-image:
+		url("./assets/background.svg");
+	background-size: cover;
 }
 
-.opaco{
-  padding: 2rem 3rem;
-  backdrop-filter: blur(10px);
-  border-radius: 0.7rem;
-  transform: scaleX(0);
+#form{
+	opacity: 0;
+}
+
+#form.is-show {
+	opacity: 1;
+	transition: opacity 500ms linear;
+}
+
+.opaco {
+	padding: 2rem 3rem;
+	backdrop-filter: blur(10px);
+	border-radius: 0.7rem;
+	transform: scaleX(0);
 }
 
 .opaco.is-show {
-  transform: scaleX(1);
-  transition: transform 500ms linear;
+	transform: scaleX(1);
+	transition: transform 500ms linear;
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+	width: 10px;
+	height: 10px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #1b202b; 
+	background: #1b202b;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #888; 
-  border-radius:10px;
+	background: #888;
+	border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-} 
+	background: #555;
+}
 
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 1,
-  'wght' 500,
-  'GRAD' 0,
-  'opsz' 90
+	font-variation-settings:
+		'FILL' 1,
+		'wght' 500,
+		'GRAD' 0,
+		'opsz' 90
 }

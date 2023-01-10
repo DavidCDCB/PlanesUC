@@ -123,9 +123,10 @@ let getRequest = (url) => {
 let getRequest2 = (url) => {
   axios.get(url).then(response => {
     let nombres = Object.values(response.data);
-    console.log(nombres);
     let x = document.querySelector("#programas");
     let option = document.createElement("option");
+    document.querySelector("#form").classList.add("is-show");
+    console.log(nombres);
     for (let nombre of nombres) {
       option = document.createElement("option");
       option.text = changeNames(nombre);
