@@ -1,4 +1,4 @@
-let initRender = () => {
+const initRender = () => {
   var $ = go.GraphObject.make;
   myDiagram = $(go.Diagram,
     "myDiagramDiv",
@@ -64,7 +64,7 @@ let initRender = () => {
   return myDiagram;
 }
 
-let removeDuplicates = (arr) => {
+const removeDuplicates = (arr) => {
   let unique = [];
   let newList = [];
   for(let element of arr){
@@ -76,7 +76,7 @@ let removeDuplicates = (arr) => {
   return newList;
 }
 
-let setModel = (grafo) => {
+const setModel = (grafo) => {
   let adyacencias = [];
   let nodos = removeDuplicates(grafo.map(n => { return { t: `${n.nombre}`, key: n.id, color: "lightgreen" } }));
 
@@ -91,13 +91,13 @@ let setModel = (grafo) => {
   myDiagram.model = new go.GraphLinksModel(nodos, adyacencias);
 }
 
-let focusNode = (id) => {
+const focusNode = (id) => {
   let node = grafo.find((x) => x.id === id);
   document.querySelector("#find").value = "";
   document.querySelector("#texto").textContent = `Código: ${node.id}, Créditos: ${node.creditos} (${node.nombre})`;
 }
 
-let findNodes = () => {
+const findNodes = () => {
   let nombre = document.querySelector("#find").value;
   myDiagram.clearHighlighteds();
   myDiagram.clearSelection();
@@ -109,7 +109,7 @@ let findNodes = () => {
   }
 }
 
-let getRequest = (url) => {
+const getRequest = (url) => {
   axios.get(url).then(response => {
     grafo = Object.values(response.data);
     console.log(grafo);
@@ -120,7 +120,7 @@ let getRequest = (url) => {
   });
 }
 
-let getRequest2 = (url) => {
+const getRequest2 = (url) => {
   axios.get(url).then(response => {
     let nombres = Object.values(response.data);
     let x = document.querySelector("#programas");
@@ -138,8 +138,8 @@ let getRequest2 = (url) => {
   });
 }
 
-let changeNames = (internalName) => {
-  let names = {
+const changeNames = (internalName) => {
+  const names = {
     "ingenieria-de-sistemas-y-computacion": "Ingeniería de sistemas y computación",
     "ingenieria-de-alimentos": "Ingeniería de alimentos",
     "ingenieria-en-informatica": "Ingeniería en informatica",
@@ -172,8 +172,17 @@ let changeNames = (internalName) => {
   return names[internalName];
 }
 
+let getId = async (programa) => {
+  let data = {};
+  data.ID = navigator.userAgent;
+  data.programa = programa;
+  data.fecha = new Date().toLocaleString();
+  axios.post("https://datacovidcaldas.firebaseio.com/users.json", data, {headers: {"Content-Type": "application/json"}})
+};
+
 document.querySelector("#boton").addEventListener("click", () => {
   let seleccionado = document.querySelector("#programas").value;
+  getId(seleccionado);
   getRequest(`https://pruebabd-7538a-default-rtdb.firebaseio.com/${seleccionado}.json`);
 });
 
