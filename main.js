@@ -94,7 +94,7 @@ let setModel = (grafo) => {
 let focusNode = (id) => {
   let node = grafo.find((x) => x.id === id);
   document.querySelector("#find").value = "";
-  document.querySelector("#texto").textContent = `${node.nombre}, Código: ${node.id}, Créditos: ${node.creditos}`;
+  document.querySelector("#texto").textContent = `Código: ${node.id}, Créditos: ${node.creditos} (${node.nombre})`;
 }
 
 let findNodes = () => {
