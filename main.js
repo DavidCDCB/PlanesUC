@@ -183,6 +183,10 @@ let getId = async (programa) => {
 document.querySelector("#boton").addEventListener("click", () => {
   let seleccionado = document.querySelector("#programas").value;
   getId(seleccionado);
+  if(seleccionado == "none"){
+    document.querySelector("#programas").classList.add("shake");
+    document.querySelector("#programas").classList.add("animated");
+  }
   getRequest(`https://pruebabd-7538a-default-rtdb.firebaseio.com/${seleccionado}.json`);
 });
 
