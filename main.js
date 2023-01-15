@@ -198,3 +198,15 @@ let myDiagram = undefined;
 let grafo = undefined;
 initRender();
 getRequest2('https://pruebabd-7538a-default-rtdb.firebaseio.com/nombres-programas.json');
+
+
+if (isMobile.apple.phone || isMobile.android.phone) {
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML = "<h3>Para un uso mas cómodo es recomendable usar esta web desde un computador o una tablet.</h3>";
+  swal({
+    title: "Espera",
+    content: wrapper,
+    icon: "warning",
+    dangerMode: true,
+  });
+}
