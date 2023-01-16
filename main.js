@@ -202,7 +202,7 @@ getRequest2('https://pruebabd-7538a-default-rtdb.firebaseio.com/nombres-programa
 
 if (isMobile.apple.phone || isMobile.android.phone) {
   const wrapper = document.createElement('div');
-  wrapper.innerHTML = "<h3>Para un uso mas cómodo es recomendable usar esta web desde un computador o una tablet.</h3>";
+  wrapper.innerHTML = "<h3>Para un mejor uso se recomienda usar este sitio web desde un computador o una tablet.</h3>";
   swal({
     title: "Espera",
     content: wrapper,
