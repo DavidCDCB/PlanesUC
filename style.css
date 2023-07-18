@@ -4,6 +4,11 @@ body {
 	background-size: cover;
 }
 
+.container{
+	backdrop-filter: blur(10px);
+	border-radius: 0.7rem;
+}
+
 .img{
 	width: 40%;
 	position: absolute;
@@ -27,7 +32,6 @@ body {
 
 .opaco {
 	padding: 2rem 3rem;
-	backdrop-filter: blur(10px);
 	border-radius: 0.7rem;
 	opacity: 0;
 }
