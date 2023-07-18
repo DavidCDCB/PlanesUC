@@ -25,7 +25,7 @@ const initRender = () => {
       },
       mouseEnter: (e, node) => {
         let shape = node.findObject("SHAPE");
-        shape.stroke = "white";
+        shape.stroke = "black";
       },
       mouseLeave: (e, node) => {
         let shape = node.findObject("SHAPE");
@@ -46,10 +46,10 @@ const initRender = () => {
       { routing: go.Link.AvoidsNodes, corner: 20, curve: go.Link.JumpOver },
       $(go.Shape,
         new go.Binding("strokeWidth", "isHighlighted", (h) => h ? 5 : 3).ofObject(),
-        new go.Binding("stroke", "isHighlighted", (h) => h ? "red" : "white").ofObject(),
+        new go.Binding("stroke", "isHighlighted", (h) => h ? "red" : "black").ofObject(),
         { strokeWidth: 5 }
       ),
-      $(go.Shape, { toArrow: "Standard", fill: "white", stroke: "white", strokeWidth: 5 }),
+      $(go.Shape, { toArrow: "Standard", fill: "black", stroke: "black", strokeWidth: 5 }),
     );
   myDiagram.addDiagramListener("ObjectSingleClicked",
     function (e) {
@@ -65,7 +65,7 @@ const setEventListeners = () => {
     if(selected != "none"){
       console.log(selected);
       sentRequest(`https://pruebabd-7538a-default-rtdb.firebaseio.com/${selected}.json`, buildModel);
-      getId(selected);
+      //getId(selected);
     } else {
       getDOMElement("#programas").classList.add("shake");
       getDOMElement("#programas").classList.add("animated");
