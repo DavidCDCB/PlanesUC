@@ -65,7 +65,7 @@ const setEventListeners = () => {
     if(selected != "none"){
       console.log(selected);
       sentRequest(`https://pruebabd-7538a-default-rtdb.firebaseio.com/${selected}.json`, buildModel);
-      //getId(selected);
+      getId(selected);
     } else {
       getDOMElement("#programas").classList.add("shake");
       getDOMElement("#programas").classList.add("animated");
