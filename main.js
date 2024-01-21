@@ -23,6 +23,9 @@ const initRender = () => {
         node.findNodesInto().each((n) => n.isHighlighted = true);
         diagram.commitTransaction("highlight");
       },
+      doubleClick: (e, node) => {
+        changeCompleteSubject(node.qb.key);
+      },
       mouseEnter: (e, node) => {
         let shape = node.findObject("SHAPE");
         shape.stroke = "black";
@@ -34,10 +37,10 @@ const initRender = () => {
     },
     $(go.Shape, "RoundedRectangle",
       { strokeWidth: 3, stroke: null, name: "SHAPE" },
-      new go.Binding("fill", "isSelected", (sel) => sel ? "cyan" : "lightgreen").ofObject(),
-      new go.Binding("fill", "isHighlighted", (h) => h ? "orange" : "lightgreen").ofObject(),
+      new go.Binding("fill", "isSelected", (sel, node) => sel ? "cyan" : colorSubjectIsComplete(node?.yg?.qb?.key)).ofObject(),
+      new go.Binding("fill", "isHighlighted", (h, node) => h ? "orange" : colorSubjectIsComplete(node?.yg?.qb?.key)).ofObject(),
       new go.Binding("strokeWidth", "isHighlighted", (h) => h ? 5 : 3).ofObject(),
-      new go.Binding("stroke", "isHighlighted", (h) => h ? "red" : "lightgreen").ofObject()
+      new go.Binding("stroke", "isHighlighted", (h, node) => h ? "red" : colorSubjectIsComplete(node?.yg?.qb?.key)).ofObject()
     ),
     $(go.TextBlock, { margin: 10, font: "bold 18px Verdana" }, new go.Binding("text", "t"))
     );
@@ -57,6 +60,28 @@ const initRender = () => {
       if (!(part instanceof go.Link)) focusNode(part.data.key);
     });
   return myDiagram;
+}
+
+const subjectIsComplete = (subject) => {
+  const subjectsCompleteStr = localStorage.getItem("subjectsComplete");
+  const subjectsComplete = subjectsCompleteStr ? JSON.parse(subjectsCompleteStr) : [];
+  return subjectsComplete.includes(subject);
+}
+
+const changeCompleteSubject = (subject) => {
+  const subjectsCompleteStr = localStorage.getItem("subjectsComplete");
+  let subjectsComplete = subjectsCompleteStr ? JSON.parse(subjectsCompleteStr) : [];
+  if(subjectIsComplete(subject)){
+    const indexToDelete = subjectsComplete.indexOf(subject);
+    subjectsComplete.splice(indexToDelete, 1);
+  }else{
+    subjectsComplete.push(subject);
+  }
+  localStorage.setItem("subjectsComplete", JSON.stringify(subjectsComplete));
+}
+
+const colorSubjectIsComplete = (subject) => {
+  return subjectIsComplete(subject) ? "yellow" : "lightgreen";
 }
 
 const setEventListeners = () => {
